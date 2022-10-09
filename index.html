@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crypt</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <h1>Crypt</h1>
+        <div class="input-group">
+          <input
+            type="text"
+            id="text"
+            class="input"
+            placeholder="Insert text here"
+          />
+          <input
+            type="number"
+            id="key"
+            value="0"
+            class="input"
+            min="0"
+            max="26"
+          />
+        </div>
+        <div class="button-group">
+          <button id="encrypt" class="btn btn-red">
+            Encrypt
+          </button>
+          <button id="decrypt" class="btn btn-sky">
+            Decrypt
+          </button>
+          <button id="change" class="btn btn-emerald">
+            Change
+          </button>
+        </div>
+        <div class="result">
+          <p>Result: <span id="result"></span></p>
+        </div>
+      </div>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

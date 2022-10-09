@@ -1,0 +1,94 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #f1f5f9;
+	font: 16px/0.5 "Roboto", sans-serif;
+	color: #3f3f46;
+}
+
+.container {
+	max-width: 1080px;
+	margin: 4rem auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+}
+
+.card {
+	background-color: #e2e8f0;
+	padding: 0.5rem 2rem;
+	border-radius: 0.7rem;
+	width: 500px;
+	min-width: 300px;
+}
+
+.input {
+	font-family: "Roboto", sans-serif;
+	font-size: 1rem;
+	border: none;
+	outline: none;
+	padding: 0.8em 0.8em;
+	border-radius: 0.7em;
+	color: #3f3f46;
+}
+
+.input-group {
+	display: grid;
+	grid-template-columns: 1fr 65px;
+	gap: 0.4rem;
+}
+
+.btn {
+	font-family: "Roboto", sans-serif;
+	font-size: 1rem;
+	border: none;
+	outline: none;
+	padding: 0.6em 1.2em;
+	border-radius: 0.6em;
+	transition: background-color 0.5s ease;
+}
+
+.btn:hover {
+	cursor: pointer;
+}
+
+.btn-red {
+	background-color: #ef4444;
+	color: #fff;
+}
+
+.btn-red:hover {
+	background-color: #dc2626;
+}
+
+.btn-emerald {
+	background-color: #10b981;
+	color: #fff;
+}
+
+.btn-emerald:hover {
+	background-color: #16a34a;
+}
+
+.btn-sky {
+	background-color: #0ea5e9;
+	color: #fff;
+}
+
+.btn-sky:hover {
+	background-color: #0284c7;
+}
+
+.button-group {
+	margin-top: 1.2rem;
+	display: flex;
+	justify-content: space-between;
+}
+
+.result {
+	text-align: start;
+	font-size: 1.2rem;
+}
