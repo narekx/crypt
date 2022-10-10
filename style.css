@@ -19,7 +19,7 @@ body {
 
 .card {
 	background-color: #e2e8f0;
-	padding: 0.5rem 2rem;
+	padding: 1rem 2rem;
 	border-radius: 0.7rem;
 	width: 500px;
 	min-width: 300px;
@@ -35,10 +35,15 @@ body {
 	color: #3f3f46;
 }
 
-.input-group {
+.input-grid {
 	display: grid;
 	grid-template-columns: 1fr 65px;
 	gap: 0.4rem;
+	margin-bottom: 0.5rem;
+}
+
+.input-group {
+	display: grid;
 }
 
 .btn {

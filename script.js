@@ -1,15 +1,11 @@
-const encryptButton = document.querySelector("#encrypt");
-const decryptButton = document.querySelector("#decrypt");
-const changeButton = document.querySelector("#change");
+const cryptedInput = document.querySelector("#crypted");
 const textInput = document.querySelector("#text");
 const keyInput = document.querySelector("#key");
-const resultInput = document.querySelector("#result");
 
 // Event listeners
 
-encryptButton.addEventListener("click", encryptHandle);
-decryptButton.addEventListener("click", decryptHandle);
-changeButton.addEventListener("click", changeHandle);
+textInput.addEventListener("input", encryptHandle);
+keyInput.addEventListener("input", encryptHandle);
 
 // Handlers
 
@@ -19,16 +15,7 @@ changeButton.addEventListener("click", changeHandle);
 function encryptHandle() {
 	const text = textInput.value;
 	const key = Number(keyInput.value);
-	resultInput.innerHTML = encrypt(text, Number(key));
-}
-
-/**
- * Decrypt handle
- */
-function decryptHandle() {
-	const text = textInput.value;
-	const key = Number(keyInput.value);
-	resultInput.innerHTML = decrypt(text, Number(key));
+	cryptedInput.value = encrypt(text, Number(key));
 }
 
 /**
@@ -37,20 +24,20 @@ function decryptHandle() {
 function changeHandle() {
 	const result = resultInput.innerHTML;
 	textInput.value = result;
+	encryptHandle();
 }
-
 
 // Helpers
 
 /**
  * Get moved array
- * @param {array} arr 
- * @param {int} key 
+ * @param {array} arr
+ * @param {int} key
  * @returns {array}
  */
 function getMovedArray(arr, key) {
 	key = Math.abs(key) > arr.length - 1 ? key % arr.length : key;
-	return arr.map((_, index, array) => {
+	return [...arr].reverse().map((_, index, array) => {
 		index -= key;
 		if (index < 0) {
 			index += array.length;
@@ -66,29 +53,18 @@ function getMovedArray(arr, key) {
 
 /**
  * Encrypt string
- * @param {string} str 
- * @param {int} key 
+ * @param {string} str
+ * @param {int} key
  * @returns {string}
  */
 function encrypt(str, key) {
 	const chars = getChars();
 	const movedChars = getMovedArray(chars, key);
 	return Array.from(str)
-		.map(char => movedChars[chars.indexOf(char)])
-		.join("");
-}
-
-/**
- * Decrypt string
- * @param {string} str 
- * @param {int} key 
- * @returns {string}
- */
-function decrypt(str, key) {
-	const chars = getChars();
-	const movedChars = getMovedArray(chars, key);
-	return Array.from(str)
-		.map(char => chars[movedChars.indexOf(char)])
+		.map((char) => {
+			let newChar = movedChars[chars.indexOf(char.toLowerCase())];
+			return isUpper(char) ? newChar.toUpperCase() : newChar;
+		})
 		.join("");
 }
 
@@ -97,5 +73,14 @@ function decrypt(str, key) {
  * @returns {array}
  */
 function getChars() {
-	return Array.from('abcdefghijklmonpqrstuvwxyz');
+	return Array.from("abcdefghijklmonpqrstuvwxyz");
+}
+
+/**
+ * Is upper
+ * @param {string} char
+ * @returns {bool}
+ */
+function isUpper(char) {
+	return char === char.toUpperCase();
 }
